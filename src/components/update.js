@@ -80,7 +80,7 @@ export class Update extends React.Component {
             description: this.state.Description,
             _id: this.state._id
         }
-        axios.post('http://localhost:4000/api/reviews/'+this.state._id,newReview)
+        axios.put('http://localhost:4000/api/reviews/'+this.state._id, newReview)
         .then((res)=>{
             console.log(res.data);
         })

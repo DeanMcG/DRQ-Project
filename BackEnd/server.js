@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const path = require('path');
 
+//Code to enable CORS
 app.use(cors());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -39,31 +40,14 @@ var reviewSchema = new Schema({
 
 var ReviewModel = mongoose.model("review", reviewSchema);
 
+//.get to retrieve the reviews api
 app.get('/api/reviews', (req, res) => {
 
-
-    // const myreviews = [
-    //     {
-    //     "Name": "Avengers: Infinity War",
-    //     "Address": "2018",
-    //     "imdbID": "tt4154756",
-    //     "Type": "review",
-    //     "Image": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg"
-    //     },
-    //     {
-    //     "Name": "Captain America: Civil War",
-    //     "Address": "2016",
-    //     "imdbID": "tt3498820",
-    //     "Type": "review",
-    //     "Image": "https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_SX300.jpg"
-    //     }
-    //     ];
    
         ReviewModel.find((err, data) => {
             res.json(data);
         })
 
-        // res.json({review:myreviews});
 })
 
 app.get('/api/reviews/:id', (req,res)=>{
@@ -82,6 +66,7 @@ app.delete('/api/reviews/:id',(req,res)=>{
     })
 })
 
+//.post runs when the review has been received
 app.post('/api/reviews', (req,res) => {
     console.log('Review Received!');
     console.log(req.body.name);

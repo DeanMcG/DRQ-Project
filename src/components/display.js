@@ -19,6 +19,7 @@ export class Display extends React.Component {
 
     };
 
+    //Retrieves the Reviews API
     componentDidMount() {
         axios.get('http://localhost:4000/api/reviews')
             .then(
@@ -48,6 +49,7 @@ export class Display extends React.Component {
 
     }
 
+    //Displays the reviews on page
     render() {
         return (
             <div>

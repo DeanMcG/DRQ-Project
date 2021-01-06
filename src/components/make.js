@@ -51,6 +51,7 @@ export class Make extends React.Component {
         });
     }
 
+    //Method for submit button
     onSubmit(e) {
         e.preventDefault();
         alert("Review: " + this.state.Name + " " + this.state.Address + " " + this.state.Image + " " + this.state.Description)
@@ -69,6 +70,7 @@ export class Make extends React.Component {
             console.log(err);
         });
     }
+    //Form to add review
     render() {
         return (
             <div className='App'>
